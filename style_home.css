@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oi&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --cor1: #b30710;
+    --cor2: rgb(221, 236, 253);
+    --cor3: #FFFFFF;
+    --cor4: #f73a43;
+    --cor5: #F8DA14;
+    --cor6: #950037;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor2);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+
+    font-family: 'dongle';
+    font-size: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--cor1);
+    color: var(--cor2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
+    padding: 30px;
+    transition: background-color 0.3s ease;
+    transition: padding 0.3s ease;
+}
+
+.scrolled {
+    background-color: black;
+    padding: 1%;
+}
+
+#logo {
+    font-family: 'oi';
+    font-size: 33px;
+    margin: auto auto auto 7%;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: auto 10px auto 0;
+}
+
+.opcoes li { margin: 0 20px; transition: transform 0.3s ease; }
+
+.opcoes li:hover { transform: translateY(-3px); }
+
+a {
+    color: var(--cor2);
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+a:hover { opacity: 0.5; }
+
+i { margin: auto 0; }
+
+#menu { display: none; }
+
+.introducao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 50px;
+}
+
+.imgs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+#titulo-djavan {
+    width: 60%;
+    max-width: 300px;
+    height: auto;
+}
+
+.box {
+    background-color: var(--cor3);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.introducao img {
+    width: 400px;
+    height: auto;
+}
+
+.texto {
+    text-align: center;
+    padding: 20px 20%;
+}
+
+.pai {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor4);
+    width: auto;
+    padding: 10px 0;
+    border-radius: 13px;
+}
+
+.pai > p {
+    font-family: 'Dongle', sans-serif;
+    text-align: center;
+    color: var(--cor5);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.pai h1 {
+    font-family: 'Prompt', sans-serif;
+    text-align: center;
+    color: var(--cor3);
+    font-size: 2rem;
+    margin: 0;
+}  
+
+.filho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+}
+
+.filho img {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filho img:hover {
+    transform: scale(1.01);
+}
+
+.filho > p {
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    width: 50%;
+    padding: 30px 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--cor3);
+}
+
+p > .q1 {
+    color: var(--cor5);
+    margin: 0 5px auto;
+    font-size: 1.5rem;
+}
+
+p > .q2 {
+    color: var(--cor5);
+    margin: auto 0 0 10px;
+    font-size: 1.5rem;
+}
+
+.filho .passar {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    color: var(--cor5);
+    margin: 0 30px 0 0;
+    width: 10%;
+}
+
+.filho .passar:hover {
+    cursor: pointer;
+    color: var(--cor3);
+}
+
+.passar i {
+    margin: auto 0;
+    font-size: 40px;
+    transition: transform 0.3s ease;
+}
+
+.passar:hover i {
+    transform: translateX(5px);
+}
+
+.passar span {
+    display: none;
+    transform: rotate(-90deg);
+    font-size: 20px;
+    margin: 0;
+}
+
+.passar span {
+    display: inline;
+    margin: 0;
+}
+
+.oceano {
+    flex-direction: row-reverse;
+}
+
+.oceano .filho {
+    text-align: right;
+}
+
+.oceano .passar span {
+    transform: rotate(90deg);
+}
+
+.oceano .passar:hover i {
+    transform: translateX(-5px);
+}
+
+.aprofundando h2 {
+    color: var(--cor3);
+    background-color: black;
+    text-align: center;
+    margin: 0;
+    padding: 8% 5% 5%;
+}
+
+.aprofundando .djavan-img {
+    background-image: url('./midias/djavan-tocando.jpg');
+    background-size: cover;
+    color: var(--cor2);
+    height: 100%;
+}
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+
+
+
+
+
+
+
+/*   -   Responsividade   -   */
+
+@media (max-width: 900px) {
+    li { display: none; }
+
+    nav { padding: 20px; }
+
+    #logo {
+        font-size: 25px;
+        margin: auto auto auto 1%;
+    }
+
+    #menu {
+        display: inline-block;
+        margin: auto 10px;
+        padding: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    #menu:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    .imgs {
+        padding: 5px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .box {
+        margin: 20px 5%;
+    }
+
+    #titulo-djavan {
+        width: 80%;
+    }
+
+    #foto-destacada {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .texto {
+        padding: 20px 30px;
+    }
+
+    .pai {
+        margin: 5px 5%;
+    }
+
+    .filho {
+        flex-direction: column;
+        width: auto;
+        margin: 5px 5%;
+    }
+
+    .filho img {
+        width: 70%;
+    }
+
+    .filho > p {
+        width: 100%;
+        font-size: 0.9rem;
+        margin-top: 15px;
+        padding: 15px;
+    }
+
+    .filho .passar {
+        width: auto;
+        margin: 10px 0 0 0;
+        gap: 5px;
+    }
+
+    .passar span {
+        display: none;
+    }
+
+    .aprofundando h2 {
+        padding: 10% 5% 5%;
+    }
+
+}
+
