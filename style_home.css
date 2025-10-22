@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oi&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oi&family=Poiret+One&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 :root {
@@ -14,6 +14,7 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: var(--cor2);
+    height: 9999px;
 }
 
 header {
@@ -78,7 +79,7 @@ i { margin: auto 0; }
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 50px;
+    margin: 2%;
 }
 
 .imgs {
@@ -229,7 +230,16 @@ p > .q2 {
     transform: translateX(-5px);
 }
 
+.aprofundando {
+    display: block;
+    position: relative;
+    background-color: black;
+    height: 6000px;
+}
+
 .aprofundando h2 {
+    font-family: 'poiret one';
+    font-size: 2.5rem;
     color: var(--cor3);
     background-color: black;
     text-align: center;
@@ -247,22 +257,98 @@ p > .q2 {
 
 * {box-sizing:border-box}
 
-/* Slideshow container */
-.slideshow-container {
-  position: relative;
+
+.slider {
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
+.slides {
+    display: flex;
+    width: 100%;
+    animation: slide 15s infinite ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(0); }
+    30% { transform: translateX(-100%); }
+    55% { transform: translateX(-100%); }
+    60% { transform: translateX(-200%); }
+    85% { transform: translateX(-200%); }
+    90% { transform: translateX(-300%); }
+    100% { transform: translateX(-300%); }
+}
+
+.aprofundando .biografia {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    background-color: #f0e392;
+    width: 90%;
+    margin-top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
+.biografia img {
+    width: 40%;
+    height: auto;
+}
 
+.info-bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+    height: auto;
+    padding: 0 20px;
+}
 
+.info-bio h3 {
+    color: var(--cor4);
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    margin: 0;
+}
 
+.info-bio p {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
 
+.content-bio {
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    width: 100%;
+}
 
+.bio-bnt {
+    heigth: auto;
+    text-align: center;
+    writing-mode: sideways-lr;
+    font-size: 2rem;
+    font-family: 'dongle', sans-serif;
+    color: black;
+    background-color: #faf0af;
+    transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+.bio-bnt:hover {
+    cursor: pointer;
+    color: var(--cor3);
+    background-color: var(--cor4);
+}
 
 /*   -   Responsividade   -   */
 
@@ -343,7 +429,44 @@ p > .q2 {
     }
 
     .aprofundando h2 {
+        font-size: 1.5rem;
         padding: 10% 5% 5%;
+    }
+
+    .content-bio {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .content-bio img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .info-bio {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .info-bio h3 {
+        color: var(--cor1);
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.5rem;
+    }
+
+    .bio-bnt {
+        writing-mode: horizontal-tb;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .bio-bnt p {
+        margin: 20px 0;
     }
 
 }
