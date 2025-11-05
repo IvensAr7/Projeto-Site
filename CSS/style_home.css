@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oi&family=Poiret+One&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+* {
+    text-decoration: none;
+}
 
 :root {
     --cor1: #b30710;
@@ -13,8 +16,6 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: var(--cor2);
-    height: 9999px;
 }
 
 header {
@@ -62,14 +63,14 @@ nav {
 
 .opcoes li:hover { transform: translateY(-3px); }
 
-a {
+li a {
     color: var(--cor2);
     text-decoration: none;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
 }
 
-a:hover { opacity: 0.5; }
+li a:hover { opacity: 0.5; }
 
 i { margin: auto 0; }
 
@@ -79,7 +80,8 @@ i { margin: auto 0; }
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 2%;
+    padding: 2%;
+    background-color: var(--cor2);
 }
 
 .imgs {
@@ -233,8 +235,6 @@ p > .q2 {
 .aprofundando {
     display: block;
     position: relative;
-    background-color: black;
-    height: 6000px;
 }
 
 .aprofundando h2 {
@@ -248,7 +248,7 @@ p > .q2 {
 }
 
 .aprofundando .djavan-img {
-    background-image: url('./midias/djavan-tocando.jpg');
+    background-image: url('../midias/djavan-tocando.jpg');
     background-size: cover;
     color: var(--cor2);
     height: 100%;
@@ -259,8 +259,12 @@ p > .q2 {
 
 
 .slider {
+    position: fixed;
     width: 100%;
+    height: 100%;
     overflow: hidden;
+    z-index: -1;
+    bottom: 0;
 }
 
 .slides {
@@ -287,17 +291,35 @@ p > .q2 {
     100% { transform: translateX(-300%); }
 }
 
+.space p {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    color: var(--cor1);
+    background-color: #f0e392;
+    font-family: 'Poiret One', cursive;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.container-fundo {
+    display: block;
+    margin-top: 100px;
+    width: 100%;
+    height: 90vh;
+    background-color: #EBEBEB;
+}
+
 .aprofundando .biografia {
     display: flex;
     position: absolute;
     align-items: center;
     background-color: #f0e392;
     width: 90%;
-    margin-top: -50px;
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-
 
 .biografia img {
     width: 40%;
@@ -334,21 +356,96 @@ p > .q2 {
 }
 
 .bio-bnt {
-    heigth: auto;
+    position: relative;
     text-align: center;
     writing-mode: sideways-lr;
     font-size: 2rem;
-    font-family: 'dongle', sans-serif;
+    font-family: 'Dongle', sans-serif;
+    letter-spacing: 3px;
     color: black;
     background-color: #faf0af;
     transition: background-color 0.5s ease, color 0.3s ease;
+    overflow: hidden;
+    z-index: 0;
 }
 
-.bio-bnt:hover {
-    cursor: pointer;
-    color: var(--cor3);
+
+.bio-bnt::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
     background-color: var(--cor4);
+    z-index: -1;
+    transition: height 1.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+.bio-bnt:hover::before {
+    height: 100%;
+    transition: height 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bio-bnt:hover p {
+    color: white;
+    z-index: 1;
+}
+
+.shows {
+    display: flex;
+    justify-content: center;
+    background-color: #EBEBEB;
+}
+
+.shows img {
+    position: relative;
+    background-size: cover;
+    width: 80%;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shows a {
+    position: absolute;
+    right: 0;
+
+    color: black;
+    background-color: #f0e392;
+    overflow: hidden;
+
+    font-family: 'dongle', cursive;
+    font-size: 2rem;
+
+    z-index: 1;
+    padding: 20px 25% 20px 30px;
+    transition: 0.3s ease;
+}
+
+.shows a:hover { 
+    color: white; 
+    transform: translateY(-3px);
+    box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.shows a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--cor4);
+    transition: 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: -1;
+}
+
+.shows a:hover::before {
+    width: 100%;
+    transition: 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 
 /*   -   Responsividade   -   */
 
@@ -433,7 +530,17 @@ p > .q2 {
         padding: 10% 5% 5%;
     }
 
+    .slider {
+        position: unset;
+    }
+
+    .space {
+        height: 0;
+    }
+
     .content-bio {
+        display: block;
+        height: auto;
         position: relative;
         flex-direction: column;
         align-items: center;
@@ -443,6 +550,10 @@ p > .q2 {
     .content-bio img {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    .biografia {
+        height: auto;
     }
 
     .info-bio {
@@ -460,14 +571,13 @@ p > .q2 {
     }
 
     .bio-bnt {
+        display: flex;
         writing-mode: horizontal-tb;
-        margin-top: 20px;
         width: 100%;
+        height: 10vh;
+        justify-content: center;
+        align-items: center;
     }
 
-    .bio-bnt p {
-        margin: 20px 0;
-    }
-
+    
 }
-
