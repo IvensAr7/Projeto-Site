@@ -1,12 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_disc.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/script_home.js" defer></script>
+    <script src="https://kit.fontawesome.com/f9f6eb6af5.js" crossorigin="anonymous"></script>
     <title>Site Djavan | Discografia</title>
 </head>
 <body>
-    
+    <header>
+        <nav id="navbar">
+            <span id="logo">Djavan</span>
+            <ul class="opcoes">
+                <li><a href="01 - home.html">ÍNICIO</a></li>
+                <li><a href="02 - discografia.html"><span>DISCOGRAFIA</span></a></li>
+                <li><a href="03 - musicas.html">MÚSICAS</a></li>
+                <li><a href="04 - biografia.html">BIOGRAFIA</a></li>
+                <li><a href="05 - shows.html">SHOWS</a></li>
+            </ul>
+            <i class="fa-solid fa-bars" id="menu"></i>
+        </nav>
+    </header>
+    <main>
+        <section class="album albm1">
+            <div class="imagem"><img src="../midias/album1.jpg" alt=""></div>
+                <div class="infos">
+                    <h1>A VOZ, O VIOLÃO, A MÚSICA DE DJAVAN</h1>
+                    <p class="subtitle">
+                        A estreia genial que revelou Djavan ao Brasil.
+                    </p>
+                    <p class="text">
+                        Lançado em 1976, A Voz, o Violão, a Música de Djavan marcou uma das estreias mais brilhantes da MPB. Com o sucesso imediato de “Flor-de-Lis”, Djavan revelou sua originalidade como cantor, compositor e violonista, unindo samba, lirismo e sofisticação. Produzido por Aloysio de Oliveira e acompanhado por músicos de Elis Regina, o disco apresentou clássicos como “Na Boca do Beco”, “Fato Consumado” e “Magia”, firmando Djavan como uma das vozes mais autênticas da música brasileira.
+                    </p>
+                </div>
+                <button class="btn-faixas">Mostrar Faixas</button>
+                <ol class="faixas">
+                    <li><p class="faixa">Flor de Lis</p><p class="duracao">3:46</p></li>
+                    <li><p class="faixa">Na Boca do Beco</p><p class="duracao">2:55</p></li>
+                    <li><p class="faixa">Maçã do Rosto</p><p class="duracao">3:39</p></li>
+                    <li><p class="faixa">Pára-raio</p><p class="duracao">3:01</p></li>
+                    <li><p class="faixa">E Que Deus Ajude</p><p class="duracao">2:53</p></li>
+                    <li><p class="faixa">Quantas Voltas Dá o Meu Mundo</p><p class="duracao">3:23</p></li>
+                    <li><p class="faixa">Maria das Mercedes</p><p class="duracao">3:15</p></li>
+                    <li><p class="faixa">Muito Obrigado</p><p class="duracao">3:28</p></li>
+                    <li><p class="faixa">Embola Bola (Cateretê)</p><p class="duracao">3:12</p></li>
+                    <li><p class="faixa">Fato Consumado</p><p class="duracao">3:10</p></li>
+                    <li><p class="faixa">Magia</p><p class="duracao">3:48</p></li>
+                    <li><p class="faixa">Ventos do Norte</p><p class="duracao">3:21</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- <section class="album albm2">
+            <div class="imagem"><img src="../midias/album2.jpg" alt="Capa do álbum Djavan (1978)"></div>
+            <div class="infos">
+                <h1>DJAVAN</h1>
+                <p class="subtitle">
+                    O álbum que consolidou Djavan como um dos grandes nomes da MPB.
+                </p>
+                <p class="text">
+                    Lançado em 1978, o álbum <em>Djavan</em> marcou o amadurecimento artístico do cantor e compositor alagoano. 
+                    Misturando samba, jazz e baladas com a poesia característica de suas letras, o disco revelou sucessos como 
+                    “Meu Bem Querer” e “Álibi”, além de reafirmar o talento de Djavan como um dos compositores mais originais da música brasileira.
+                </p>
+            </div>
+
+            <h2>Faixas</h2>
+            <ol class="faixas">
+                <li><p class="faixa">Cara de Índio</p><p class="duracao">3:57</p></li>
+                <li><p class="faixa">Serrado</p><p class="duracao">3:38</p></li>
+                <li><p class="faixa">Água</p><p class="duracao">3:45</p></li>
+                <li><p class="faixa">Álibi</p><p class="duracao">3:50</p></li>
+                <li><p class="faixa">Numa Esquina de Hanói</p><p class="duracao">4:05</p></li>
+                <li><p class="faixa">Minha Mãe</p><p class="duracao">3:32</p></li>
+                <li><p class="faixa">Alagoas</p><p class="duracao">3:19</p></li>
+                <li><p class="faixa">Estória de Cantador</p><p class="duracao">3:25</p></li>
+                <li><p class="faixa">Nereci</p><p class="duracao">3:40</p></li>
+                <li><p class="faixa">Samba Dobrado</p><p class="duracao">3:22</p></li>
+                <li><p class="faixa">Dupla Traição</p><p class="duracao">3:21</p></li>
+            </ol>
+        </section>
+
+        <section class="album">
+            <div class="imagem"><img src="../midias/album3.jpg" alt="Capa do álbum Alumbramento (1980)"></div>
+            <div class="infos">
+                <h1>ALUMBRAMENTO</h1>
+                <p class="subtitle">
+                    O álbum que consolidou a sofisticação musical de Djavan.
+                </p>
+                <p class="text">
+                    Lançado em 1980, <em>Alumbramento</em> reafirma Djavan como um dos compositores mais criativos da MPB, combinando 
+                    ritmos brasileiros com elementos de jazz e pop internacional. Com sucessos como “Soweto” e “Lilás”, o disco 
+                    mescla sensibilidade lírica, harmonias sofisticadas e arranjos inovadores, mantendo Djavan no topo da música brasileira.
+                </p>
+            </div>
+
+            <h2>Faixas</h2>
+            <ol class="faixas">
+                <li><p class="faixa">Soweto</p><p class="duracao">4:13</p></li>
+                <li><p class="faixa">Alumbramento</p><p class="duracao">3:56</p></li>
+                <li><p class="faixa">Oceano</p><p class="duracao">3:42</p></li>
+                <li><p class="faixa">Lilás</p><p class="duracao">3:58</p></li>
+                <li><p class="faixa">Carnaval dos Animais</p><p class="duracao">3:29</p></li>
+                <li><p class="faixa">Samba de Verao</p><p class="duracao">3:34</p></li>
+                <li><p class="faixa">Sina</p><p class="duracao">4:05</p></li>
+                <li><p class="faixa">Navio</p><p class="duracao">3:48</p></li>
+                <li><p class="faixa">Espelho</p><p class="duracao">3:31</p></li>
+                <li><p class="faixa">Jóia</p><p class="duracao">3:50</p></li>
+            </ol>
+        </section> -->
+
+    </main>
 </body>
 </html>

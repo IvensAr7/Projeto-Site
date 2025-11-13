@@ -23,29 +23,60 @@ window.addEventListener('scroll', () => {
 
 const slideshow = document.getElementById('slideshow');
 const space = document.getElementById('space');
+const mediaQuery = window.matchMedia('(max-width: 900px)'); // mesmo breakpoint do seu CSS
 
 function atualizarSpace() {
-  slideshow.style.top = navbar.getBoundingClientRect().height + 'px';
-  space.style.height = slideshow.getBoundingClientRect().height - 200 + 'px';
+  // Só executa se NÃO estiver no @media
+  if (!mediaQuery.matches) {
+    slideshow.style.top = navbar.getBoundingClientRect().height + 'px';
+    space.style.height = slideshow.getBoundingClientRect().height + 'px';
+  }
 }
 
-const observer = new ResizeObserver(atualizarSpace);
+// Observa mudanças no tamanho da tela
+mediaQuery.addEventListener('change', e => {
+  if (e.matches) {
+    // Entrou no modo responsivo -> remove estilos
+    slideshow.style.top = '';
+    space.style.height = '';
+  } else {
+    // Saiu do modo responsivo -> recalcula
+    atualizarSpace();
+  }
+});
+
+const observer = new ResizeObserver(() => {
+  if (!mediaQuery.matches) atualizarSpace();
+});
 observer.observe(navbar);
 observer.observe(slideshow);
 
+// Atualiza quando imagens carregam (apenas fora do modo responsivo)
 slideshow.querySelectorAll('img').forEach(img => {
-  if (!img.complete && !MediaQuery.matches) {
+  if (!img.complete && !mediaQuery.matches) {
     img.addEventListener('load', atualizarSpace);
   }
 });
 
 window.addEventListener('load', atualizarSpace);
+window.addEventListener('resize', () => {
+  if (!mediaQuery.matches) atualizarSpace();
+});
 
-window.addEventListener('resize', atualizarSpace);
+// Faixas
 
-// animação scroll
+document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.btn-faixas');
 
-AOS.init({
-    duration: 1000,
-    once: true,
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const faixas = btn.nextElementSibling;
+            faixas.classList.toggle('show');
+            if(faixas.classList.contains('show')){
+                btn.textContent = 'Ocultar Faixas';
+            } else {
+                btn.textContent = 'Mostrar Faixas';
+            }
+        });
+    });
 });
