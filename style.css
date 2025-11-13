@@ -2,6 +2,7 @@
 
 * {
     text-decoration: none;
+    box-sizing:border-box;
 }
 
 :root {
@@ -119,8 +120,8 @@ img::selection{
   opacity: 0.1;
 }
 
-/* HOME */
 
+/* HOME */
 
 
 .introducao {
@@ -301,9 +302,6 @@ p > .q2 {
     color: var(--cor2);
     height: 100%;
 }
-
-
-* {box-sizing:border-box}
 
 
 .slider {
@@ -555,30 +553,27 @@ p > .q2 {
 /* Lista de faixas */
 
 .album .faixas {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    padding: 0;
-    margin: 0;
+    grid-column: 1 / -1; /* ocupa toda a largura do grid */
+    background-color: #e0e0e0;
+    margin: 0;     
+    padding: 0;                                                         
+    border-radius: 15px;
 }
 
-.album .faixas.show {
-    max-height: 1000px;
+.album li {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 1.1rem;
+    transition: 0.3s;
 }
 
-.btn-faixas {
-    margin: 10px 0;
-    padding: 8px 16px;
-    background-color: #ccc;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.btn-faixas:hover {
-    background-color: #bbb;
+.album li:hover {
+    transform: scale(1.01);
+    background-color: #f7f3f3;
+    border-radius: 15px;
 }
 
 
