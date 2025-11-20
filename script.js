@@ -1,82 +1,75 @@
-// navbar muda com scroll
-
+// ===== Navbar muda com scroll =====
 const navbar = document.getElementById('navbar');
 const gatilho = document.getElementById('gatilho');
 let ativado = false;
 
-window.addEventListener('scroll', () => {
+if (navbar && gatilho) {
+  window.addEventListener('scroll', () => {
     const gatilhoTop = gatilho.getBoundingClientRect().top;
     if (gatilhoTop + 40 <= navbar.offsetHeight && !ativado) {
-        navbar.classList.add('scrolled');
-        ativado = true;
-        window.scrollBy({
-          top: 20,
-          behavior: 'smooth'
-        });
+      navbar.classList.add('scrolled');
+      ativado = true;
+      window.scrollBy({ top: 20, behavior: 'smooth' });
     } else if (gatilhoTop > navbar.offsetHeight && ativado) {
-        navbar.classList.remove('scrolled');
-        ativado = false;
+      navbar.classList.remove('scrolled');
+      ativado = false;
     }
-});
-
-// sincroniza tamanhos 
-
-const slideshow = document.getElementById('slideshow');
-const space = document.getElementById('space');
-const mediaQuery = window.matchMedia('(max-width: 900px)'); // mesmo breakpoint do seu CSS
-
-function atualizarSpace() {
-  // Só executa se NÃO estiver no @media
-  if (!mediaQuery.matches) {
-    slideshow.style.top = navbar.getBoundingClientRect().height + 'px';
-    space.style.height = slideshow.getBoundingClientRect().height + 'px';
-  }
+  });
 }
 
-// Observa mudanças no tamanho da tela
-mediaQuery.addEventListener('change', e => {
-  if (e.matches) {
-    // Entrou no modo responsivo -> remove estilos
-    slideshow.style.top = '';
-    space.style.height = '';
-  } else {
-    // Saiu do modo responsivo -> recalcula
-    atualizarSpace();
+// ===== Sincroniza tamanhos do slideshow =====
+const slideshow = document.getElementById('slideshow');
+const space = document.getElementById('space');
+const mediaQuery = window.matchMedia('(max-width: 900px)');
+
+if (slideshow && space) {
+  function atualizarSpace() {
+    if (!mediaQuery.matches) {
+      const navHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+      slideshow.style.top = navHeight + 'px';
+      space.style.height = slideshow.getBoundingClientRect().height + 'px';
+    }
   }
-});
 
-const observer = new ResizeObserver(() => {
-  if (!mediaQuery.matches) atualizarSpace();
-});
-observer.observe(navbar);
-observer.observe(slideshow);
+  mediaQuery.addEventListener('change', e => {
+    if (e.matches) {
+      slideshow.style.top = '';
+      space.style.height = '';
+    } else {
+      atualizarSpace();
+    }
+  });
 
-// Atualiza quando imagens carregam (apenas fora do modo responsivo)
-slideshow.querySelectorAll('img').forEach(img => {
-  if (!img.complete && !mediaQuery.matches) {
-    img.addEventListener('load', atualizarSpace);
-  }
-});
+  const observer = new ResizeObserver(() => {
+    if (!mediaQuery.matches) atualizarSpace();
+  });
+  observer.observe(slideshow);
+  if (navbar) observer.observe(navbar);
 
-window.addEventListener('load', atualizarSpace);
-window.addEventListener('resize', () => {
-  if (!mediaQuery.matches) atualizarSpace();
-});
+  slideshow.querySelectorAll('img').forEach(img => {
+    if (!img.complete && !mediaQuery.matches) {
+      img.addEventListener('load', atualizarSpace);
+    }
+  });
 
-// Faixas
+  window.addEventListener('load', atualizarSpace);
+  window.addEventListener('resize', () => {
+    if (!mediaQuery.matches) atualizarSpace();
+  });
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const btns = document.querySelectorAll('.btn-faixas');
+// ===== Faixas dos álbuns =====
+document.querySelectorAll('.album').forEach(album => {
+  const botao = album.querySelector('.btn');
+  const lista = album.querySelector('.faixas');
 
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const faixas = btn.nextElementSibling;
-            faixas.classList.toggle('show');
-            if(faixas.classList.contains('show')){
-                btn.textContent = 'Ocultar Faixas';
-            } else {
-                btn.textContent = 'Mostrar Faixas';
-            }
-        });
+  if (botao && lista) {
+    botao.addEventListener('click', () => {
+      lista.classList.toggle('aberta'); // abre/fecha lista
+      botao.classList.toggle('aberta'); // gira o ícone
     });
+  }
 });
+
+
+

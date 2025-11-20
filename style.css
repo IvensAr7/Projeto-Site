@@ -15,7 +15,34 @@
 
     /* DISCOGRAFIA */
 
-    --albm1: rgb(22, 21, 21);
+    --album1: rgb(22, 21, 21);
+    --album1-sec: #4a4848;
+    --album2: #5e3504;
+    --album2-sec: #ED9120;
+    --album3: #151618;
+    --album3-sec: #838788;
+    --album4: #170602;
+    --album4-sec: #B26B49;
+    --album5: #DE8D80;
+    --album5-sec: #FBB1A3;
+    --album6: #5A679F;
+    --album6-sec: #95A6CB;
+    --album7: #070707;
+    --album7-sec: #5A5A5A;
+    --album8: #9E3A30;
+    --album8-sec: #D04029;
+    --album9: #465A39;
+    --album9-sec: #748760;
+    --album10: #282828;
+    --album10-sec: #969696;
+    --album11: #46616E;
+    --album11-sec: #6388A5;
+    --album12: #000000;
+    --album12-sec: #2D353A;
+    --album13: #720401;
+    --album13-sec: #B30204;
+    --album14: #1D1D1B;
+    --album14-sec: #82807F;
 }
 
 body {
@@ -497,16 +524,17 @@ p > .q2 {
 
 
 /* ===== Seção do Álbum ===== */
+
 .album {
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 2rem;
     padding: 40px;
-    background-color: var(--albm1);
+    background-color: var(--album1);
     border-radius: 10px;
     max-width: 1000px;
     margin: 40px auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px 15px rgba(0,0,0,0.1);
 }
 
 /* Imagem do álbum */
@@ -552,13 +580,62 @@ p > .q2 {
 }
 
 /* Lista de faixas */
+.album .btn {
+    grid-column: 1 / -1; /* ocupa toda a largura do grid */
+    color: #ffffff;
+    background-color: var(--album1-sec);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.5s ease;
+    font-family: 'inter', sans-serif;
+}
+
+.btn i {
+    opacity: 0;
+    transition: 0.3s ease;
+    transform: translateX(-5px);
+}
+
+.album .btn:hover {
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.album .btn:hover i {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.album .btn.aberta i {
+    transform: rotate(90deg);
+    opacity: 1;
+}
+
+.album .btn.aberta:hover i {
+    opacity: 1;
+    transform: translateX(5px);
+    transform: rotate(90deg);
+}
 
 .album .faixas {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
     grid-column: 1 / -1; /* ocupa toda a largura do grid */
     background-color: #e0e0e0;
     margin: 0;     
     padding: 0;                                                         
     border-radius: 15px;
+    transition: all 0.3s ease-out;
+}
+
+.album .faixas.aberta {
+    max-height: 1000px; 
+    opacity: 1;
 }
 
 .album li {
@@ -616,14 +693,145 @@ p > .q2 {
 } 
 
 .album .faixas a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background: black;
-  transition: width 0.3s ease-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: black;
+    transition: width 0.3s ease-out;
+}
+
+.album2 {
+    background-color: var(--album2);
+}
+
+.album2 .btn {
+    background-color: var(--album2-sec);
+}
+
+.album3 {
+    background-color: var(--album3);
+}
+
+.albm3 .btn {
+    background-color: var(--album3-sec);
+}
+
+.album4 {
+    background-color: var(--album4);
+}
+
+.album4 .btn {
+    background-color: var(--album4-sec);
+}
+
+.album5 {
+    background-color: var(--album5);
+}
+
+.album5 .btn {
+    background-color: var(--album5-sec);
+}
+
+.album5 .infos .subtitle {
+    color: #B4E0FF;
+}
+
+.album6 {
+    background-color: var(--album6);
+}
+
+.album6 .btn {
+    background-color: var(--album6-sec);
+}
+
+.album7 {
+    background-color: var(--album7);
+}
+
+.album7 .btn {
+    background-color: var(--album7-sec);
+}
+
+.album8 {
+    background-color: var(--album8);
+}
+
+.album8 .btn {
+    background-color: var(--album8-sec);
+}
+
+.album8 .infos .subtitle {
+    color: #FAEC1B;
+}
+
+.album9 {
+    background-color: var(--album9);
+}
+
+.album9 .btn {
+    background-color: var(--album9-sec);
+}
+.album9 {
+    background-color: var(--album9);
+}
+
+.album9 .btn {
+    background-color: var(--album9-sec);
+}
+
+.album10 {
+    background-color: var(--album10);
+}
+
+.album10 .btn {
+    background-color: var(--album10-sec);
+}
+
+.album10 .infos .subtitle {
+    color: #647A86;
+}
+
+.album11 {
+    background-color: var(--album11);
+}
+
+.album11 .btn {
+    background-color: var(--album11-sec);
+}
+
+.album11 .infos .subtitle {
+    color: #5A0125;
+}
+
+.album12 {
+    background-color: var(--album12);
+}
+
+.album12 .btn {
+    background-color: var(--album12-sec);
+}
+
+.album12 .infos .subtitle {
+    color: #A88049;
+}
+
+.album13 {
+    background-color: var(--album13);
+}
+
+.album13 .btn {
+    background-color: var(--album13-sec);
+}
+
+.album14 {
+    background-color: var(--album14);
+}
+
+.album14 .btn {
+    background-color: var(--album14-sec);
 }
 
 
