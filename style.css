@@ -96,7 +96,7 @@ nav {
     margin: auto 10px auto 0;
 }
 
-.opcoes li { margin: 0 20px; transition: transform 0.3s ease; }
+.opcoes li { margin: 0 20px; transition: 0.3s ease; }
 
 .opcoes li:hover { transform: translateY(-3px); }
 
