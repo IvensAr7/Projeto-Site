@@ -71,5 +71,26 @@ document.querySelectorAll('.album').forEach(album => {
   }
 });
 
+// ===== Player de música =====
+document.querySelectorAll('.musica').forEach(album => {
+  const botao2 = album.querySelector('.btn2');
+  const botao3 = album.querySelector('.btn3');
+  const letra = album.querySelector('.letra');
+  const sign = album.querySelector('.sign');
+  
 
+  if (botao2 && letra) {
+    botao2.addEventListener('click', () => {
+      letra.classList.toggle('aberta');
+      botao3.classList.toggle('aberta');
+    });
+  }
+
+  if (botao3 && sign) {
+    botao3.addEventListener('click', () => {
+      sign.classList.toggle('aberta');
+      botao3.classList.toggle('aberta');
+    });
+  }
+});
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Audio WebKit Controls</title>
+
+<style>
+
+audio {
+    width: 350px;
+    filter: invert(0); /* truque opcional */
+}
+
+/* ===== BASE DO PLAYER ===== */
+audio::-webkit-media-controls-panel {
+    background-color: #252323;
+    border-radius: 10px;
+}
+
+/* ===== BOTÃO PLAY/PAUSE ===== */
+audio::-webkit-media-controls-play-button {
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+}
+
+/* ===== timeline / barra de progresso ===== */
+audio::-webkit-media-controls-timeline {
+    background-color: #444;
+    border-radius: 10px;
+    height: 6px;
+}
+
+/* ===== thumb da timeline ===== */
+audio::-webkit-media-controls-timeline-container {
+    color: red;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: #fff;
+}
+
+/* thumb (bolinha) */
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button {
+    background-color: #4CAF50;
+    border-radius: 4px;
+}
+
+audio::-webkit-media-controls-play-button:hover {
+    background-color: #66BB6A;
+}
+
+</style>
+</head>
+<body>
+
+<audio src="musica.mp3" controls></audio>
+
+</body>
+</html>
