@@ -858,7 +858,7 @@ p > .q2 {
     padding: 50px;
     background-color: #555555;
     border-radius: 15px;
-    min-width: 80%;
+    width: 80%;
 }
 
 .player img {
@@ -869,11 +869,26 @@ p > .q2 {
 
 .musica .infos {
     display: flex;
-    gap: 30px;
-    border-radius: 15px;
-    background-color: #555555;
+    gap: 10px;
+    
+    width: 80%;
+    margin-top: 10px;
 }
 
+.musica .infos .letra {
+    width: 50%;
+    border-radius: 15px;
+    background-color: #555555;
+    padding: 30px;
+}
+
+.musica .infos .sign {
+    width: 50%;
+    border-radius: 15px;
+    background-color: #555555;
+    padding: 30px;
+    text-indent: 20px;
+}
 
 
 
