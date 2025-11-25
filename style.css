@@ -835,6 +835,48 @@ p > .q2 {
 }
 
 
+/* Músicas */
+
+
+.musica {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--album1-sec);
+    border-radius: 15px;
+    margin: 20px 200px;
+    padding: 30px;
+}
+
+.player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 50px;
+    background-color: #555555;
+    border-radius: 15px;
+    min-width: 80%;
+}
+
+.player img {
+    max-width: 40%;
+    border-radius: 10px;
+
+}
+
+.musica .infos {
+    display: flex;
+    gap: 30px;
+    border-radius: 15px;
+    background-color: #555555;
+}
+
+
+
+
 
 /*   -   Responsividade   -   */
 
