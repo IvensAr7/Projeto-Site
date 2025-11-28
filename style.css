@@ -7,11 +7,14 @@
 
 :root {
     --cor1: #b30710;
-    --cor2: rgb(221, 236, 253);
+    --cor2: rgb(223, 234, 247);
     --cor3: #FFFFFF;
     --cor4: #f73a43;
     --cor5: #F8DA14;
     --cor6: #950037;
+    --cor7: #f4c542;
+    --cor8: #6e1818;
+    --cor9: #0E0E0E;
 
     /* DISCOGRAFIA */
 
@@ -49,6 +52,12 @@
     --msc1: rgb(41, 37, 37);
     --msc1-sec: rgb(114, 114, 114);
 }
+
+html {
+    overflow-x: hidden;
+}
+
+
 
 body {
     margin: 0;
@@ -143,7 +152,7 @@ i { margin: auto 0; }
 }
 
 ::selection {
-  background-color: #f4c542;
+  background-color: var(--cor7);
   color: #000; 
 }
 
@@ -151,6 +160,53 @@ img::selection{
   background-color: #000000;
   opacity: 0.1;
 }
+
+
+/* Footer */
+
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    font-family: 'poiret one';
+    letter-spacing: 1px;
+    line-height: 10px;
+    width: 100%;
+    padding: 20px 50px;
+    color: var(--cor5);
+    background-color: var(--cor9);
+
+    & .msgs {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    & .contatos {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    & img {
+        width: 15%;
+        border-radius: 10px;
+    }
+
+    & h1 { font-size: 1.5rem; }
+
+    & h2 { font-size: 1rem; color: var(--cor7); }
+
+    & a {
+        display: flex;
+        align-items: center;
+        color: var(--cor7);
+        font-size: 1.2rem;
+    }
+}
+
 
 
 /* HOME */
@@ -168,7 +224,7 @@ img::selection{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 20px 15%;
 }
 
 #titulo-djavan {
@@ -868,7 +924,7 @@ p > .q2 {
     justify-content: space-between;
     align-items: center;
     
-    padding: 50px;
+    padding: 20px;
     background-color: var(--album4-sec);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -876,7 +932,7 @@ p > .q2 {
 }
 
 .player img {
-    max-width: 40%;
+    max-width: 25%;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -888,12 +944,14 @@ p > .q2 {
 .musica .letra {
     display: none;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     width: 50%;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     background-color: var(--album4-sec);
     margin-top: 10px;
-    padding: 30px;
+    padding: 15px;
     line-height: 25px;
 }
 
@@ -1067,6 +1125,127 @@ p > .q2 {
 .m4 .letra, .m4 .sign, .m4 .btn2, .m4 .btn3, .m4 .player {
     background-color: var(--album1-sec);
 }
+
+
+/* Biografia */
+
+
+.box-intro {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    background-color: var(--cor8);
+    padding: 20vh 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 85%;
+    height: 680vh;
+    margin: 40vh auto 20px;
+
+    > .img-end {
+        position: absolute;
+        bottom: 10vh;
+        width: 50%;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.box-img {
+    width: 25vw;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.box-intro .box-texto {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: 20px;
+    padding: 20px 50px;
+    background-color: var(--cor2);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    
+    & h1 { font-family: 'Poiret One', cursive; }
+
+    & .cont-text {  
+        display: flex;
+        flex-direction: column;
+        margin: 5% auto;
+
+        & p { text-indent: 20px; width: 90%; text-align: justify; margin: 8px auto;}
+        
+        & span { font-style: italic; }
+    }
+
+    & img {
+        float: right;
+        margin: 10px 0 10px 20px;
+        width: 17vw;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+/* Galeria */
+
+
+.top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: var(--album10);
+    height: 20vh;
+    width: 100vw;
+    border-radius: 0 0 20px 20px;
+    
+    & h1 {
+        font-family: 'dongle';
+        color: var(--cor7);
+        letter-spacing: 1px;
+        font-size: 2rem;
+        font-weight: 100;
+        margin: 0;
+    }
+}
+
+.galeria {
+    width: 95%;
+    margin: 0 auto;
+    column-count: 4;
+    column-gap: 20px;
+    padding: 50px 100px;
+    background-color: black;
+}
+
+.galeria img {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    display: block;
+
+    /* animação suave no hover */
+    transition: transform .3s ease, 
+                filter .3s ease,
+                opacity .3s ease;
+}
+
+/* efeito no hover */
+.galeria img:hover {
+    transform: scale(1.03);         /* zoom suave */
+    filter: brightness(1.2);        /* deixa mais clara */
+    opacity: 0.95;                  /* leve fade */
+}
+
 
 
 /*   -   Responsividade   -   */
@@ -1261,4 +1440,16 @@ p > .q2 {
         flex-direction: column;
         width: 80%;
     }
-}
+
+    /* Biografia */
+
+    #biografia .box-intro {
+        padding: 10px;
+        width: 95%;
+    }
+
+    #biografia .box-img {
+        width: 40%;
+        margin: 0 auto 20px auto;
+    }
+}    

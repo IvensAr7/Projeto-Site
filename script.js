@@ -93,4 +93,3 @@ document.querySelectorAll('.musica').forEach(album => {
     });
   }
 });
-
