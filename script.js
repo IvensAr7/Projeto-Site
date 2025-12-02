@@ -65,24 +65,23 @@ document.querySelectorAll('.album').forEach(album => {
 
   if (botao && lista) {
     botao.addEventListener('click', () => {
-      lista.classList.toggle('aberta'); // abre/fecha lista
-      botao.classList.toggle('aberta'); // gira o ícone
+      lista.classList.toggle('aberta');
+      botao.classList.toggle('aberta'); 
     });
   }
 });
 
-// ===== Player de música =====
+// ===== Btns de música =====
 document.querySelectorAll('.musica').forEach(album => {
   const botao2 = album.querySelector('.btn2');
   const botao3 = album.querySelector('.btn3');
   const letra = album.querySelector('.letra');
   const sign = album.querySelector('.sign');
-  
 
   if (botao2 && letra) {
     botao2.addEventListener('click', () => {
       letra.classList.toggle('aberta');
-      botao3.classList.toggle('aberta');
+      botao2.classList.toggle('aberta');
     });
   }
 
@@ -93,3 +92,33 @@ document.querySelectorAll('.musica').forEach(album => {
     });
   }
 });
+
+// ===== Slides mscs =====
+const slides = document.querySelector(".slides2");
+const musicas = document.querySelectorAll(".musica");
+const viewport = document.querySelector(".viewport2");
+
+let index = 0;
+
+// Atualiza o slider horizontal e a altura da viewport
+function updateSlider() {
+    slides.style.transform = `translateX(${-index * 100}%)`;
+    updateHeight();
+}
+
+// Botões
+document.getElementById("next").onclick = () => {
+    if (index < musicas.length - 1) {
+        index++;
+        updateSlider();
+    }
+};
+
+document.getElementById("prev").onclick = () => {
+    if (index > 0) {
+        index--;
+        updateSlider();
+    }
+};
+
+
