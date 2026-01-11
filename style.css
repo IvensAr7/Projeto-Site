@@ -54,19 +54,62 @@
 }
 
 html {
+    height: 100%;
     overflow-x: hidden;
 }
 
-
-
 body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     margin: 0;
     background-color: #EBEBEB;
     font-family: 'inter', sans-serif;
+    cursor: none;
+    min-height: 100vh;
+}
+
+main {
+    min-height: 100%;
+}
+
+.cursor {
+    width: 15px;
+    height: 15px;
+    background: rgba(252, 227, 0, 0.9);
+    border-radius: 50%;
+    border: 2px solid black;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background-color 0.3s ease
+}
+
+.cursor.active {
+    width: 17px;
+    height: 17px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px dashed black;
+    animation: girar 2s linear infinite;
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 
+
 /* NAVBAR */
+
 
 
 header {
@@ -152,13 +195,12 @@ i { margin: auto 0; }
 }
 
 ::selection {
-  background-color: var(--cor7);
-  color: #000; 
+    background-color: var(--cor7);
+    color: #000; 
 }
 
 img::selection{
-  background-color: #000000;
-  opacity: 0.1;
+   border: #000000 1px solid;
 }
 
 
@@ -327,7 +369,7 @@ p > .q2 {
 }
 
 .filho .passar:hover {
-    cursor: pointer;
+    
     color: var(--cor3);
 }
 
@@ -371,7 +413,6 @@ p > .q2 {
 
 .aprofundando {
     display: block;
-    position: relative;
 }
 
 .aprofundando h2 {
@@ -393,7 +434,7 @@ p > .q2 {
 
 
 .slider {
-    position: fixed;
+    position: unset;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -425,7 +466,7 @@ p > .q2 {
     100% { transform: translateX(-300%); }
 }
 
-.space p {
+.space {
     margin: 0;
     padding: 10px;
     text-align: center;
@@ -436,21 +477,14 @@ p > .q2 {
     font-weight: 900;
 }
 
-.container-fundo {
-    display: block;
-    margin-top: 100px;
-    width: 100%;
-    height: 90vh;
-    background-color: #EBEBEB;
-}
-
 .aprofundando .biografia {
     display: flex;
-    position: absolute;
     align-items: center;
     background-color: #f0e392;
     width: 90%;
-    left: 50%;
+    margin-top: 50px;
+    margin-left: 50%;
+    margin-bottom: 50px;
     transform: translateX(-50%);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -662,7 +696,7 @@ p > .q2 {
 .album .btn:hover {
     font-size: 1.05rem;
     letter-spacing: 1px;
-    cursor: pointer;
+    
 }
 
 .album .btn:hover i {
@@ -930,7 +964,7 @@ p > .q2 {
         font-size: 50px;
         background: none;
         border: none;
-        cursor: pointer;
+        
         color: var(--album2-sec);
         transition: 0.3s ease-in-out;
     }
@@ -1037,7 +1071,7 @@ p > .q2 {
 .btn2:hover {
     font-size: 1.05rem;
     letter-spacing: 1px;
-    cursor: pointer;
+    
 }
 
 .btn2:hover i {
@@ -1079,7 +1113,7 @@ p > .q2 {
 .btn3:hover {
     font-size: 1.05rem;
     letter-spacing: 1px;
-    cursor: pointer;
+    
 }
 
 .btn3:hover i {
@@ -1120,7 +1154,7 @@ p > .q2 {
 .btn3:hover {
     font-size: 1.05rem;
     letter-spacing: 1px;
-    cursor: pointer;
+    
 }
 
 .btn3:hover i {
@@ -1316,7 +1350,6 @@ p > .q2 {
     }
 
     #menu:hover {
-        cursor: pointer;
         transform: scale(1.1);
     }
 
@@ -1383,10 +1416,6 @@ p > .q2 {
         position: unset;
     }
 
-    .space {
-        height: 0;
-    }
-
     .content-bio {
         display: block;
         height: auto;
@@ -1399,10 +1428,6 @@ p > .q2 {
     .content-bio img {
         width: 100%;
         margin-bottom: 20px;
-    }
-
-    .biografia {
-        height: auto;
     }
 
     .info-bio {
@@ -1429,11 +1454,18 @@ p > .q2 {
     }
 
     .shows {
-        margin-top: 45%;
+        display: block;
     }
     
     .shows a {
-        padding: 10px 20% 10px 15px;
+        text-align: center;
+        width: 100vw;
+        padding: 0 100px;
+        margin-top: -10px;
+    }
+
+    .shows a:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
 
     .shows img {
@@ -1514,4 +1546,31 @@ p > .q2 {
             justify-content: center;
         }
     }
+
+    
+    /* Footer */
+
+
+    footer {
+        padding: 10px;
+        flex-direction: column;
+        gap: 12px;
+        
+        & .contatos, h1, h2 {
+            font-size: 1rem;
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+
+}
+
+a,
+audio,
+button,
+input,
+textarea,
+select,
+[role="button"] {
+  cursor: none;
 }

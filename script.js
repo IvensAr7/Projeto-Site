@@ -17,46 +17,6 @@ if (navbar && gatilho) {
   });
 }
 
-// ===== Sincroniza tamanhos do slideshow =====
-const slideshow = document.getElementById('slideshow');
-const space = document.getElementById('space');
-const mediaQuery = window.matchMedia('(max-width: 900px)');
-
-if (slideshow && space) {
-  function atualizarSpace() {
-    if (!mediaQuery.matches) {
-      const navHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-      slideshow.style.top = navHeight + 'px';
-      space.style.height = slideshow.getBoundingClientRect().height + 'px';
-    }
-  }
-
-  mediaQuery.addEventListener('change', e => {
-    if (e.matches) {
-      slideshow.style.top = '';
-      space.style.height = '';
-    } else {
-      atualizarSpace();
-    }
-  });
-
-  const observer = new ResizeObserver(() => {
-    if (!mediaQuery.matches) atualizarSpace();
-  });
-  observer.observe(slideshow);
-  if (navbar) observer.observe(navbar);
-
-  slideshow.querySelectorAll('img').forEach(img => {
-    if (!img.complete && !mediaQuery.matches) {
-      img.addEventListener('load', atualizarSpace);
-    }
-  });
-
-  window.addEventListener('load', atualizarSpace);
-  window.addEventListener('resize', () => {
-    if (!mediaQuery.matches) atualizarSpace();
-  });
-}
 
 // ===== Faixas dos álbuns =====
 document.querySelectorAll('.album').forEach(album => {
@@ -107,18 +67,58 @@ function updateSlider() {
 }
 
 // Botões
-document.getElementById("next").onclick = () => {
-    if (index < musicas.length - 1) {
-        index++;
-        updateSlider();
-    }
-};
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
 
-document.getElementById("prev").onclick = () => {
-    if (index > 0) {
-        index--;
-        updateSlider();
+if (nextBtn && prevBtn) {
+  nextBtn.onclick = () => {
+    if (index < musicas.length - 1) {
+      index++;
+      updateSlider();
     }
-};
+  };
+
+  prevBtn.onclick = () => {
+    if (index > 0) {
+      index--;
+      updateSlider();
+    }
+  };
+}
+
+
+
+// ===== Cursor =====
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+document.addEventListener("mouseleave", () => {
+  cursor.style.opacity = "0";
+});
+
+document.addEventListener("mouseenter", () => {
+  cursor.style.opacity = "1";
+});
+
+const clickable = "a, audio, button, input, textarea, select, img, [role='button']";
+
+document.addEventListener("mouseover", (e) => {
+  if (e.target.closest(clickable)) {
+    cursor.classList.add("active");
+  }
+});
+
+document.addEventListener("mouseout", (e) => {
+  if (e.target.closest(clickable)) {
+    cursor.classList.remove("active");
+  }
+});
+
+
 
 
