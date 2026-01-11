@@ -258,12 +258,13 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 2%;
+    padding: 20px;
     background-color: var(--cor2);
 }
 
 .imgs {
     display: flex;
+    margin: 0;
     justify-content: space-between;
     align-items: center;
     padding: 20px 15%;
@@ -276,6 +277,7 @@ footer {
 }
 
 .box {
+    margin: 0;
     background-color: var(--cor3);
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -1324,6 +1326,17 @@ p > .q2 {
     opacity: 0.95;                  
 }
 
+a,
+audio,
+button,
+input,
+textarea,
+select,
+[role="button"] {
+  cursor: none;
+}
+
+
 
 
 /*   -   Responsividade   -   */
@@ -1333,9 +1346,32 @@ p > .q2 {
 
     /* HOME */
 
+    body {
+        cursor: inherit;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
     li { display: none; }
 
     nav { padding: 20px; }
+
+    .cursor {
+        display: none;
+    }
+
+    a,
+    audio,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"] {
+        cursor: inherit;
+    }
+
 
     #logo {
         font-size: 25px;
@@ -1353,14 +1389,14 @@ p > .q2 {
         transform: scale(1.1);
     }
 
+    .introducao {
+        padding: 10px;
+    }
+
     .imgs {
         padding: 5px;
         flex-direction: column;
         text-align: center;
-    }
-
-    .box {
-        margin: 20px 5%;
     }
 
     #titulo-djavan {
@@ -1374,10 +1410,6 @@ p > .q2 {
 
     .texto {
         padding: 20px 30px;
-    }
-
-    .pai {
-        margin: 5px 5%;
     }
 
     .filho {
@@ -1563,14 +1595,4 @@ p > .q2 {
         }
     }
 
-}
-
-a,
-audio,
-button,
-input,
-textarea,
-select,
-[role="button"] {
-  cursor: none;
 }
