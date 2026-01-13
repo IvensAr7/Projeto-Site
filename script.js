@@ -17,6 +17,14 @@ if (navbar && gatilho) {
   });
 }
 
+// Botão navbar (mobile)
+
+let on = document.querySelector('.hamburger');
+
+document.querySelector('.hamburger').addEventListener('click', function () {
+  this.classList.toggle('active');
+  
+});
 
 // ===== Faixas dos álbuns =====
 document.querySelectorAll('.album').forEach(album => {
