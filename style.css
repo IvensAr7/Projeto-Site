@@ -361,9 +361,8 @@ footer {
     & a {
         display: flex;
         align-items: center;
-        gap: 5px;
         color: var(--cor7);
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 }
 
@@ -1734,7 +1733,7 @@ select,
         gap: 30px;
         flex-wrap: wrap;
         
-        & .contatos, h1, h2 {
+        & h1, h2 {
             font-size: 1rem;
             flex-direction: row;
             gap: 10px;
@@ -1747,6 +1746,13 @@ select,
 
         & .msgs img {
             width: 50%;
+        }
+
+        .contatos {
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+            gap: 15px;
         }
     }
 
