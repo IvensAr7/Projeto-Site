@@ -19,12 +19,17 @@ if (navbar && gatilho) {
 
 // Botão navbar (mobile)
 
-let on = document.querySelector('.hamburger');
+const burger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
 
-document.querySelector('.hamburger').addEventListener('click', function () {
-  this.classList.toggle('active');
-  
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  menu.classList.toggle('active');
 });
+
+
+
+
 
 // ===== Faixas dos álbuns =====
 document.querySelectorAll('.album').forEach(album => {
@@ -113,7 +118,7 @@ document.addEventListener("mouseenter", () => {
   cursor.style.opacity = "1";
 });
 
-const clickable = "a, audio, button, input, textarea, select, img, [role='button']";
+const clickable = "a, audio, button, input, textarea, select, [role='button']";
 
 document.addEventListener("mouseover", (e) => {
   if (e.target.closest(clickable)) {
